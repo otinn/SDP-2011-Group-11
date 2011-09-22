@@ -1,0 +1,18 @@
+# To make sure we are all working on the same settings please copy this
+# file into your homefolder and change its name to '.xawtv'
+[defaults]
+norm = PAL
+input = S-Video
+filter = vcr_hack
+filter = full_luma_range
+color=57%
+bright=57%
+hue=57%
+contrast=57%
+
+pixsize = 640x480
+fullscreen = 640x480
+
+[global]
+filter=linear blend
+filter=vcr hack

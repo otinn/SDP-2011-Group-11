@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="feed">
+    <property name="resizable">False</property>
+    <property name="title" translatable="yes">Feed</property>
+    <property name="default_width">100</property>
+    <property name="default_height">100</property>
+    <child>
+      <object class="GtkImage" id="feed_image">
+        <property name="visible">True</property>
+        <property name="pixbuf">no_feed.jpg</property>
+      </object>
+    </child>
+  </object>
+</interface>

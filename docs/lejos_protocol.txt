@@ -1,0 +1,105 @@
+move (final rotation important, no reversing):
+1. byte: 1
+2. short: n
+3. n times short short: x y (millimetres)
+4. float: final_rotation (clockwise, in radians)
+
+move (final rotation important, reversing allowed):
+1. byte: 2
+2. short: n
+3. n times short short: x y (millimetres)
+4. float: final_rotation (clockwise, in radians)
+
+move (final rotation not important, no reversing):
+1. byte: 3
+2. short: n
+3. n times short short: x y (millimetres)
+
+move (final rotation not important, reversing allowed):
+1. byte: 4
+2. short: n
+3. n times short short: x y (millimetres)
+
+idle motor A
+1. byte: 5
+
+idle motor B
+1. byte: 6
+
+idle motor C
+1. byte: 7
+
+brake motor A
+1. byte: 8
+
+brake motor B
+1. byte: 9
+
+brake motor C
+1. byte: 10
+
+run motor A at set speed
+1. byte: 11
+2. byte: speed
+
+run motor B at set speed
+1. byte: 12
+2. byte: speed
+
+run motor C at set speed
+1. byte: 13
+2. byte: speed
+
+ping (brick replies with the reference time and the times it received and transmitted the reply)
+1. byte: 14
+2. long: reference time
+
+xy coordinates according to vision (millimetres)
+1. byte: 15
+2. float: x
+3. float: y
+4. long: frame time (milliseconds, brick time)
+
+rotation according to vision (radians)
+1. byte: 16
+2. float: rotation
+3. long: frame time (milliseconds, brick time)
+
+print state (debug)
+1. byte: 17
+
+set new powerMultiplier
+1. byte: 18
+2. float: powerMultiplier
+
+set new maxSoftTurn
+1. byte: 19
+2. float: maxSoftTurn
+
+set new maxHeadingStabilizer
+1. byte: 20
+2. float: maxHeadingStabilizer
+
+set new maxPowerLimiterConstant
+1. byte: 21
+2. float: maxPowerLimiterConstant
+
+set new powerLimitZone
+1. byte: 22
+2. byte: powerLimitZone
+
+set new accelerationInterval
+1. byte: 23
+2. byte: accelerationInterval
+
+set new initStraightPower
+1. byte: 24
+2. byte: initStraightPower
+
+set new initMidStraightTurnPower
+1. byte: 25
+2. byte: initMidStraightTurnPower
+
+set new initTurnPower
+1. byte: 26
+2. byte: initTurnPower

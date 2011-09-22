@@ -1,0 +1,1381 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="shapes_sizes">
+    <property name="title" translatable="yes">Shapes and Sizes</property>
+    <child>
+      <object class="GtkTable" id="table">
+        <property name="visible">True</property>
+        <property name="n_rows">10</property>
+        <property name="n_columns">14</property>
+        <property name="column_spacing">5</property>
+        <child>
+          <object class="GtkVSeparator" id="vseparator1">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+          </object>
+          <packing>
+            <property name="left_attach">2</property>
+            <property name="right_attach">3</property>
+            <property name="bottom_attach">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVSeparator" id="vseparator2">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+          </object>
+          <packing>
+            <property name="left_attach">5</property>
+            <property name="right_attach">6</property>
+            <property name="bottom_attach">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVSeparator" id="vseparator3">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+          </object>
+          <packing>
+            <property name="left_attach">8</property>
+            <property name="right_attach">9</property>
+            <property name="bottom_attach">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkVSeparator" id="vseparator4">
+            <property name="visible">True</property>
+            <property name="orientation">vertical</property>
+          </object>
+          <packing>
+            <property name="left_attach">11</property>
+            <property name="right_attach">12</property>
+            <property name="bottom_attach">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="general">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">General</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="right_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ball">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Ball</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="robot">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Robot</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="left_attach">6</property>
+            <property name="right_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Blue</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">11</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow">
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Yellow</property>
+            <attributes>
+              <attribute name="weight" value="bold"/>
+            </attributes>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">14</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blob">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Blob:</property>
+          </object>
+          <packing>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">3</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_blob_area_threshold0">
+            <property name="width_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">blob_min_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_blob_area_threshold1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">blob_max_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="pnp">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">PNP:</property>
+          </object>
+          <packing>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_pnp_dist_thresh">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">pnp_adj</property>
+            <property name="digits">2</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="max_foreground">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Max obj:</property>
+          </object>
+          <packing>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="cc">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">CC:</property>
+          </object>
+          <packing>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ball_location">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Location:</property>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="ball_location_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_ball_centre0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_ball_centre1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ball_vector">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Vector:</property>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="ball_vector_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_ball_vector0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_ball_vector1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ball_radius">
+            <property name="width_request">70</property>
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Radius:</property>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ball_roundness">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Roundness:</property>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ball_area">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Area:</property>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">8</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_ball_area_threshold0">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">ball_area_min_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_ball_area_threshold1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">ball_area_max_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="ballroundness">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Roundness:</property>
+          </object>
+          <packing>
+            <property name="left_attach">3</property>
+            <property name="right_attach">4</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="ball_roundness_val">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">roundness_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="robot_area">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Robot area:</property>
+          </object>
+          <packing>
+            <property name="left_attach">6</property>
+            <property name="right_attach">7</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">3</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_robot_area_threshold0">
+            <property name="width_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">robot_area_min_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_robot_area_threshold1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">robot_area_max_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="dot_area">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Dot area:</property>
+          </object>
+          <packing>
+            <property name="left_attach">6</property>
+            <property name="right_attach">7</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">5</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_black_dot_area_threshold0">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">dot_area_min_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_black_dot_area_threshold1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">dot_area_max_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="dot_dist">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Dot distance:</property>
+          </object>
+          <packing>
+            <property name="left_attach">6</property>
+            <property name="right_attach">7</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">7</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_black_dot_dist_threshold0">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">dot_dist_min_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_black_dot_dist_threshold1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">dot_dist_max_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="plate_area">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Plate area:</property>
+          </object>
+          <packing>
+            <property name="left_attach">6</property>
+            <property name="right_attach">7</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">9</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_plate_area_threshold0">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">plate_area_min_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_plate_area_threshold1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">plate_area_max_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">7</property>
+            <property name="right_attach">8</property>
+            <property name="top_attach">8</property>
+            <property name="bottom_attach">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue_location">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Location:</property>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">10</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue_vector">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Vector:</property>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">10</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue_dot_location">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Dot location:</property>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">10</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue_dot_vector">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Dot vector:</property>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">10</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue_area">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Area:</property>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">10</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="blue_plate">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Plate size:</property>
+          </object>
+          <packing>
+            <property name="left_attach">9</property>
+            <property name="right_attach">10</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="blue_location_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_centre0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_centre1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">10</property>
+            <property name="right_attach">11</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="blue_vector_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_vector0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_vector1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0,0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">10</property>
+            <property name="right_attach">11</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="blue_dot_location_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_black_dot0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_black_dot1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">10</property>
+            <property name="right_attach">11</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="blue_dot_vector_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_black_dot_vector0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_blue_robot_black_dot_vector1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">10</property>
+            <property name="right_attach">11</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="_blue_robot_t_area">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">10</property>
+            <property name="right_attach">11</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="_blue_plate_area">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">10</property>
+            <property name="right_attach">11</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow_location">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Location:</property>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">13</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow_vector">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Vector:</property>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">13</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow_dot_location">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Dot location:</property>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">13</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow_dot_vector">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Dot vector:</property>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">13</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow_area">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Area:</property>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">13</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="yellow_plate">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Plate size:</property>
+          </object>
+          <packing>
+            <property name="left_attach">12</property>
+            <property name="right_attach">13</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="yellow_location_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_centre0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_centre1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">13</property>
+            <property name="right_attach">14</property>
+            <property name="top_attach">1</property>
+            <property name="bottom_attach">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="yellow_vector_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_vector0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_vector1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">13</property>
+            <property name="right_attach">14</property>
+            <property name="top_attach">2</property>
+            <property name="bottom_attach">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="yellow_dot_location_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_black_dot0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_black_dot1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">13</property>
+            <property name="right_attach">14</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="yellow_dot_vector_hbox">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_black_dot_vector0">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">(0.0</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="_yellow_robot_black_dot_vector1">
+                <property name="visible">True</property>
+                <property name="xalign">0</property>
+                <property name="label" translatable="yes">, 0.0)</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="left_attach">13</property>
+            <property name="right_attach">14</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="_yellow_robot_t_area">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">13</property>
+            <property name="right_attach">14</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="_yellow_plate_area">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">13</property>
+            <property name="right_attach">14</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="_ball_radius">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">3</property>
+            <property name="bottom_attach">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="_ball_roundness_metric">
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">0</property>
+          </object>
+          <packing>
+            <property name="left_attach">4</property>
+            <property name="right_attach">5</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_max_foreground_obj_thresh">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">_max_foreground_obj_thresh_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_cc_area_thresh">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">_cc_adj</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">5</property>
+            <property name="bottom_attach">6</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="cc1">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Top:</property>
+          </object>
+          <packing>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="cc2">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Bottom</property>
+          </object>
+          <packing>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="cc3">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Left:</property>
+          </object>
+          <packing>
+            <property name="top_attach">8</property>
+            <property name="bottom_attach">9</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="cc4">
+            <property name="visible">True</property>
+            <property name="xalign">1</property>
+            <property name="label" translatable="yes">Right:</property>
+          </object>
+          <packing>
+            <property name="top_attach">9</property>
+            <property name="bottom_attach">10</property>
+            <property name="x_options">GTK_FILL</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_offset_top">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">adjustment1</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_offset_bottom">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">adjustment2</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_offset_left">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">adjustment3</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">8</property>
+            <property name="bottom_attach">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHScale" id="_offset_right">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">adjustment4</property>
+            <property name="digits">0</property>
+            <property name="value_pos">left</property>
+          </object>
+          <packing>
+            <property name="left_attach">1</property>
+            <property name="right_attach">2</property>
+            <property name="top_attach">9</property>
+            <property name="bottom_attach">10</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAdjustment" id="blob_max_adj">
+    <property name="upper">9000</property>
+    <property name="step_increment">50</property>
+    <property name="page_increment">200</property>
+  </object>
+  <object class="GtkAdjustment" id="blob_min_adj">
+    <property name="upper">9000</property>
+    <property name="step_increment">50</property>
+    <property name="page_increment">200</property>
+  </object>
+  <object class="GtkAdjustment" id="pnp_adj">
+    <property name="upper">1</property>
+    <property name="step_increment">0.01</property>
+    <property name="page_increment">0.01</property>
+  </object>
+  <object class="GtkAdjustment" id="ball_area_max_adj">
+    <property name="upper">250</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ball_area_min_adj">
+    <property name="upper">250</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="ball_radius_max_adj">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">5</property>
+  </object>
+  <object class="GtkAdjustment" id="ball_radius_min_adj">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">5</property>
+  </object>
+  <object class="GtkAdjustment" id="roundness_adj">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="robot_area_max_adj">
+    <property name="upper">1000</property>
+    <property name="step_increment">5</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="robot_area_min_adj">
+    <property name="upper">1000</property>
+    <property name="step_increment">5</property>
+    <property name="page_increment">50</property>
+  </object>
+  <object class="GtkAdjustment" id="dot_area_max_adj">
+    <property name="upper">150</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="dot_area_min_adj">
+    <property name="upper">150</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="dot_dist_min_adj">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="dot_dist_max_adj">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="plate_area_max_adj">
+    <property name="lower">200</property>
+    <property name="upper">3000</property>
+    <property name="step_increment">20</property>
+    <property name="page_increment">80</property>
+  </object>
+  <object class="GtkAdjustment" id="plate_area_min_adj">
+    <property name="lower">200</property>
+    <property name="upper">3000</property>
+    <property name="step_increment">20</property>
+    <property name="page_increment">80</property>
+  </object>
+  <object class="GtkAdjustment" id="_max_foreground_obj_thresh_adj">
+    <property name="upper">8</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">2</property>
+  </object>
+  <object class="GtkAdjustment" id="_cc_adj">
+    <property name="upper">50</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">50</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+    <property name="page_size">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment2">
+    <property name="upper">50</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment3">
+    <property name="upper">50</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+    <property name="page_size">10</property>
+  </object>
+  <object class="GtkAdjustment" id="adjustment4">
+    <property name="upper">50</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+</interface>

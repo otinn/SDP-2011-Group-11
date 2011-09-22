@@ -1,0 +1,5 @@
+<frame name="00000008.jpg">
+    <ball x="185" y="290" radius="-1" />
+    <yrobot x="-1" y="-1" rotation="-1" />
+    <brobot x="50" y="155" rotation="" />
+</frame>

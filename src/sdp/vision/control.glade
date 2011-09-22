@@ -1,0 +1,2353 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="control">
+    <property name="title" translatable="yes">Control</property>
+    <property name="resizable">False</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="default_width">350</property>
+    <signal name="delete_event" handler="self.close"/>
+    <child>
+      <object class="GtkVBox" id="control_vbox">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkTable" id="game_mode_table">
+            <property name="visible">True</property>
+            <property name="n_rows">2</property>
+            <property name="n_columns">2</property>
+            <property name="column_spacing">5</property>
+            <property name="row_spacing">5</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkButton" id="game_mode_play">
+                <property name="label" translatable="yes">Play</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton" id="game_mode_wait">
+                <property name="label" translatable="yes">Wait</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="game_mode_take">
+                <property name="label" translatable="yes">Take Penalty</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="game_mode_defend">
+                <property name="label" translatable="yes">Defend Penalty</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHSeparator" id="separator">
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">4</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTable" id="we_are_table">
+            <property name="visible">True</property>
+            <property name="n_rows">2</property>
+            <property name="n_columns">6</property>
+            <child>
+              <object class="GtkLabel" id="we_are_colour">
+                <property name="visible">True</property>
+                <property name="yalign">0</property>
+                <property name="xpad">3</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">We are</property>
+              </object>
+              <packing>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="we_are_blue">
+                <property name="label" translatable="yes">blue.</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="yalign">0</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="we_are_yellow">
+                <property name="label" translatable="yes">yellow.</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="yalign">1</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">we_are_blue</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="right_attach">2</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="we_are_shooting">
+                <property name="visible">True</property>
+                <property name="xalign">1</property>
+                <property name="yalign">0</property>
+                <property name="xpad">3</property>
+                <property name="ypad">2</property>
+                <property name="label" translatable="yes">We are shooting</property>
+              </object>
+              <packing>
+                <property name="left_attach">2</property>
+                <property name="right_attach">3</property>
+                <property name="bottom_attach">2</property>
+                <property name="x_options">GTK_FILL</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="we_are_shooting_left">
+                <property name="label" translatable="yes">left.</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="yalign">0</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="right_attach">4</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="we_are_shooting_right">
+                <property name="label" translatable="yes">right.</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="yalign">1</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">we_are_shooting_left</property>
+              </object>
+              <packing>
+                <property name="left_attach">3</property>
+                <property name="right_attach">4</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="pitch_label">
+                <property name="visible">True</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Pitch:</property>
+              </object>
+              <packing>
+                <property name="left_attach">4</property>
+                <property name="right_attach">5</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="pitch_main">
+                <property name="label" translatable="yes">Main</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="right_attach">6</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="pitch_other">
+                <property name="label" translatable="yes">Other</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">pitch_main</property>
+              </object>
+              <packing>
+                <property name="left_attach">5</property>
+                <property name="right_attach">6</property>
+                <property name="top_attach">1</property>
+                <property name="bottom_attach">2</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="thresholds">
+            <property name="visible">True</property>
+            <property name="label_xalign">0.5</property>
+            <child>
+              <object class="GtkAlignment" id="thresholds_alignment">
+                <property name="visible">True</property>
+                <property name="top_padding">5</property>
+                <property name="bottom_padding">5</property>
+                <property name="left_padding">5</property>
+                <property name="right_padding">5</property>
+                <child>
+                  <object class="GtkVBox" id="vbox">
+                    <property name="visible">True</property>
+                    <property name="orientation">vertical</property>
+                    <property name="spacing">4</property>
+                    <child>
+                      <object class="GtkVBox" id="vbox1">
+                        <property name="visible">True</property>
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkHBox" id="window_hbox">
+                            <property name="visible">True</property>
+                            <child>
+                              <object class="GtkFileChooserButton" id="thresholds_file_load">
+                                <property name="visible">True</property>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="thresholds_file_save">
+                                <property name="label" translatable="yes">Save</property>
+                                <property name="visible">True</property>
+                                <property name="can_focus">True</property>
+                                <property name="receives_default">True</property>
+                              </object>
+                              <packing>
+                                <property name="expand">False</property>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">0</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="thresholds_show_window">
+                            <property name="label" translatable="yes">Show window</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="xalign">0.30000001192092896</property>
+                            <property name="active">True</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkNotebook" id="thresholds_notebook">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <child>
+                          <object class="GtkVBox" id="thresholds_blue_vbox">
+                            <property name="visible">True</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkHBox" id="thresholds_blue_hbox">
+                                <property name="visible">True</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_blue_manual">
+                                    <property name="label" translatable="yes">Enable manual thresholds</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_blue_inverse">
+                                    <property name="label" translatable="yes">Inverse</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkTable" id="thresholds_blue_table">
+                                <property name="visible">True</property>
+                                <property name="n_rows">3</property>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_blue_value">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_blue_value_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_blue_value_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_blue_value_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_blue_value_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_blue_value_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_blue_value_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_blue_value_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_blue_value_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_blue_value_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Value&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="bottom_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_blue_saturation">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_blue_saturation_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_blue_saturation_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_blue_saturation_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_blue_saturation_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_blue_saturation_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_blue_saturation_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_blue_saturation_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_blue_saturation_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_blue_saturation_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Saturation&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">1</property>
+                                    <property name="bottom_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_blue_hue">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_blue_hue_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_blue_hue_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_blue_hue_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_blue_hue_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_blue_hue_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_blue_hue_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_blue_hue_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_blue_hue_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_blue_hue_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Hue&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_blue">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Blue</property>
+                          </object>
+                          <packing>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVBox" id="thresholds_yellow_vbox">
+                            <property name="visible">True</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkHBox" id="thresholds_yellow_hbox">
+                                <property name="visible">True</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_yellow_manual">
+                                    <property name="label" translatable="yes">Enable manual thresholds</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_yellow_inverse">
+                                    <property name="label" translatable="yes">Inverse</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkTable" id="thresholds_yellow_table">
+                                <property name="visible">True</property>
+                                <property name="n_rows">3</property>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_yellow_value">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_yellow_value_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_yellow_value_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_yellow_value_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_yellow_value_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_yellow_value_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_yellow_value_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_yellow_value_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_yellow_value_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_yellow_value_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Value&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="bottom_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_yellow_saturation">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_yellow_saturation_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_yellow_saturation_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_yellow_saturation_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_yellow_saturation_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_yellow_saturation_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_yellow_saturation_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_yellow_saturation_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_yellow_saturation_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_yellow_saturation_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Saturation&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">1</property>
+                                    <property name="bottom_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_yellow_hue">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_yellow_hue_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_yellow_hue_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_yellow_hue_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_yellow_hue_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_yellow_hue_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_yellow_hue_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_yellow_hue_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_yellow_hue_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_yellow_hue_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Hue&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                          </packing>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_yellow">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Yellow</property>
+                          </object>
+                          <packing>
+                            <property name="position">1</property>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVBox" id="thresholds_black_vbox">
+                            <property name="visible">True</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkHBox" id="thresholds_black_hbox">
+                                <property name="visible">True</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_black_manual">
+                                    <property name="label" translatable="yes">Enable manual thresholds</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_black_inverse">
+                                    <property name="label" translatable="yes">Inverse</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkTable" id="thresholds_black_table">
+                                <property name="visible">True</property>
+                                <property name="n_rows">3</property>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_black_value">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_black_value_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_black_value_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_black_value_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_black_value_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_black_value_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_black_value_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_black_value_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_black_value_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_black_value_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Value&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="bottom_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_black_saturation">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_black_saturation_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_black_saturation_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_black_saturation_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_black_saturation_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_black_saturation_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_black_saturation_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_black_saturation_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_black_saturation_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_black_saturation_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Saturation&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">1</property>
+                                    <property name="bottom_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_black_hue">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_black_hue_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_black_hue_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_black_hue_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_black_hue_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_black_hue_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_black_hue_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_black_hue_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_black_hue_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_black_hue_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Hue&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">2</property>
+                          </packing>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_black_label">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Black</property>
+                          </object>
+                          <packing>
+                            <property name="position">2</property>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVBox" id="thresholds_red_vbox">
+                            <property name="visible">True</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkHBox" id="thresholds_red_hbox">
+                                <property name="visible">True</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_red_manual">
+                                    <property name="label" translatable="yes">Enable manual thresholds</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_red_inverse">
+                                    <property name="label" translatable="yes">Inverse</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkTable" id="thresholds_red_table">
+                                <property name="visible">True</property>
+                                <property name="n_rows">3</property>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_red_value">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_red_value_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_red_value_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_red_value_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_red_value_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_red_value_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_red_value_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_red_value_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_red_value_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_red_value_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Value&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="bottom_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_red_saturation">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_red_saturation_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_red_saturation_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_red_saturation_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_red_saturation_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_red_saturation_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_red_saturation_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_red_saturation_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_red_saturation_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_red_saturation_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Saturation&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">1</property>
+                                    <property name="bottom_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_red_hue">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_red_hue_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_red_hue_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_red_hue_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_red_hue_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_red_hue_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_red_hue_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_red_hue_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_red_hue_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_red_hue_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Hue&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">3</property>
+                          </packing>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_red">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Red</property>
+                          </object>
+                          <packing>
+                            <property name="position">3</property>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkVBox" id="thresholds_green_vbox">
+                            <property name="visible">True</property>
+                            <property name="orientation">vertical</property>
+                            <child>
+                              <object class="GtkHBox" id="thresholds_green_hbox">
+                                <property name="visible">True</property>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_green_manual">
+                                    <property name="label" translatable="yes">Enable manual thresholds</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="active">True</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="position">0</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkCheckButton" id="thresholds_green_inverse">
+                                    <property name="label" translatable="yes">Inverse</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">False</property>
+                                    <property name="draw_indicator">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="expand">False</property>
+                                    <property name="position">1</property>
+                                  </packing>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">0</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="GtkTable" id="thresholds_green_table">
+                                <property name="visible">True</property>
+                                <property name="n_rows">3</property>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_green_value">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_green_value_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_green_value_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_green_value_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_green_value_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_green_value_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_green_value_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_green_value_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_green_value_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_green_value_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Value&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="bottom_attach">3</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_green_saturation">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_green_saturation_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_green_saturation_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_green_saturation_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_green_saturation_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_green_saturation_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_green_saturation_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_green_saturation_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_green_saturation_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_green_saturation_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Saturation&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">1</property>
+                                    <property name="bottom_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkFrame" id="thresholds_green_hue">
+                                    <property name="visible">True</property>
+                                    <property name="label_xalign">0.5</property>
+                                    <child>
+                                      <object class="GtkAlignment" id="thresholds_green_hue_alignment">
+                                        <property name="visible">True</property>
+                                        <property name="top_padding">5</property>
+                                        <property name="bottom_padding">5</property>
+                                        <property name="left_padding">5</property>
+                                        <property name="right_padding">5</property>
+                                        <child>
+                                          <object class="GtkTable" id="thresholds_green_hue_table">
+                                            <property name="visible">True</property>
+                                            <property name="n_rows">2</property>
+                                            <property name="n_columns">2</property>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_green_hue_min_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Min</property>
+                                              </object>
+                                              <packing>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_green_hue_max">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_green_hue_max_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkLabel" id="thresholds_green_hue_max_label">
+                                                <property name="visible">True</property>
+                                                <property name="label" translatable="yes">Max</property>
+                                              </object>
+                                              <packing>
+                                                <property name="top_attach">1</property>
+                                                <property name="bottom_attach">2</property>
+                                                <property name="x_options">GTK_FILL</property>
+                                                <property name="y_options">GTK_FILL</property>
+                                              </packing>
+                                            </child>
+                                            <child>
+                                              <object class="GtkHScale" id="thresholds_green_hue_min">
+                                                <property name="visible">True</property>
+                                                <property name="can_focus">True</property>
+                                                <property name="adjustment">thresholds_green_hue_min_adjustment</property>
+                                                <property name="fill_level">255</property>
+                                                <property name="digits">0</property>
+                                                <property name="value_pos">right</property>
+                                              </object>
+                                              <packing>
+                                                <property name="left_attach">1</property>
+                                                <property name="right_attach">2</property>
+                                              </packing>
+                                            </child>
+                                          </object>
+                                        </child>
+                                      </object>
+                                    </child>
+                                    <child type="label">
+                                      <object class="GtkLabel" id="thresholds_green_hue_label">
+                                        <property name="visible">True</property>
+                                        <property name="label" translatable="yes">&lt;b&gt;Hue&lt;/b&gt;</property>
+                                        <property name="use_markup">True</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                              <packing>
+                                <property name="position">1</property>
+                              </packing>
+                            </child>
+                          </object>
+                          <packing>
+                            <property name="position">4</property>
+                          </packing>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_green_label">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Green</property>
+                          </object>
+                          <packing>
+                            <property name="position">4</property>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="thresholds_foreground_connected">
+                            <property name="label" translatable="yes">Show connected</property>
+                            <property name="visible">True</property>
+                            <property name="can_focus">True</property>
+                            <property name="receives_default">False</property>
+                            <property name="draw_indicator">True</property>
+                          </object>
+                          <packing>
+                            <property name="position">5</property>
+                          </packing>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_foreground">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Foreground</property>
+                          </object>
+                          <packing>
+                            <property name="position">5</property>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="thresholds_frame_label">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Frame</property>
+                          </object>
+                          <packing>
+                            <property name="position">6</property>
+                          </packing>
+                        </child>
+                        <child type="tab">
+                          <object class="GtkLabel" id="thresholds_frame">
+                            <property name="visible">True</property>
+                            <property name="label" translatable="yes">Frame</property>
+                          </object>
+                          <packing>
+                            <property name="position">6</property>
+                            <property name="tab_fill">False</property>
+                          </packing>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="thresholds_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Window&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="locations">
+            <property name="visible">True</property>
+            <property name="label_xalign">0.5</property>
+            <child>
+              <object class="GtkAlignment" id="locations_alignment">
+                <property name="visible">True</property>
+                <property name="top_padding">5</property>
+                <property name="bottom_padding">5</property>
+                <property name="left_padding">5</property>
+                <property name="right_padding">5</property>
+                <child>
+                  <object class="GtkHBox" id="locations_hbox">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkTable" id="locations_table">
+                        <property name="visible">True</property>
+                        <property name="n_rows">3</property>
+                        <property name="n_columns">4</property>
+                        <property name="homogeneous">True</property>
+                        <child>
+                          <object class="GtkLabel" id="locations_us">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">Us</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_us_x">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">X: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_us_y">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">Y: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">2</property>
+                            <property name="right_attach">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_us_r">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">R: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">3</property>
+                            <property name="right_attach">4</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_them">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">Them</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_them_x">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">X: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_them_y">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">Y: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">2</property>
+                            <property name="right_attach">3</property>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_them_r">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">R: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">3</property>
+                            <property name="right_attach">4</property>
+                            <property name="top_attach">1</property>
+                            <property name="bottom_attach">2</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_ball">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">Ball</property>
+                            <attributes>
+                              <attribute name="weight" value="bold"/>
+                            </attributes>
+                          </object>
+                          <packing>
+                            <property name="top_attach">2</property>
+                            <property name="bottom_attach">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_ball_x">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">X: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">1</property>
+                            <property name="right_attach">2</property>
+                            <property name="top_attach">2</property>
+                            <property name="bottom_attach">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="locations_ball_y">
+                            <property name="visible">True</property>
+                            <property name="xalign">0</property>
+                            <property name="yalign">0</property>
+                            <property name="label" translatable="yes">Y: 0</property>
+                          </object>
+                          <packing>
+                            <property name="left_attach">2</property>
+                            <property name="right_attach">3</property>
+                            <property name="top_attach">2</property>
+                            <property name="bottom_attach">3</property>
+                          </packing>
+                        </child>
+                        <child>
+                          <placeholder/>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="locations_fps_fps">
+                        <property name="width_request">80</property>
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="yalign">0</property>
+                        <property name="label" translatable="yes">FPS: 0</property>
+                        <attributes>
+                          <attribute name="weight" value="bold"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="padding">5</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="locations_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Locations&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">4</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFrame" id="save">
+            <property name="visible">True</property>
+            <property name="label_xalign">0.5</property>
+            <child>
+              <object class="GtkAlignment" id="save_alignment">
+                <property name="visible">True</property>
+                <property name="top_padding">5</property>
+                <property name="bottom_padding">5</property>
+                <property name="left_padding">5</property>
+                <property name="right_padding">5</property>
+                <child>
+                  <object class="GtkHBox" id="save_hbox">
+                    <property name="visible">True</property>
+                    <property name="spacing">5</property>
+                    <child>
+                      <object class="GtkButton" id="save_button">
+                        <property name="label" translatable="yes">Save</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
+                      </object>
+                      <packing>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="save_custom_filename_entry">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Leave blank to save as timestamp</property>
+                        <property name="invisible_char">&#x25CF;</property>
+                      </object>
+                      <packing>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="save_custom_filename_extension">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">.jpg</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="position">2</property>
+                      </packing>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="label">
+              <object class="GtkLabel" id="save_label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">&lt;b&gt;Save&lt;/b&gt;</property>
+                <property name="use_markup">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">5</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_blue_hue_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_blue_hue_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_blue_saturation_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_blue_saturation_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_blue_value_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_blue_value_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_yellow_hue_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_yellow_hue_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_yellow_saturation_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_yellow_saturation_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_yellow_value_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_yellow_value_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_red_hue_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_red_hue_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_red_saturation_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_red_saturation_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_red_value_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_red_value_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_black_hue_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_black_hue_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_black_saturation_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_black_saturation_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_black_value_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_black_value_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_green_hue_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_green_hue_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_green_saturation_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_green_saturation_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_green_value_min_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+  <object class="GtkAdjustment" id="thresholds_green_value_max_adjustment">
+    <property name="upper">255</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
+</interface>

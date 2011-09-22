@@ -1,0 +1,10 @@
+The file Box2D/Common/b2Settings.h has been modified as follows:
+
+A velocity threshold for elastic collisions. Any collision with a relative linear velocity below this threshold will be treated as inelastic.
+b2_velocityThreshold 1 -> 0.001
+
+A body cannot sleep if its linear velocity is above this tolerance.
+b2_linearSleepTolerance	0.01 -> 0.00001
+
+A body cannot sleep if its angular velocity is above this tolerance.
+b2_angularSleepTolerance (2.0f / 180.0f * b2_pi) -> (0.002f / 180.0f * b2_pi)

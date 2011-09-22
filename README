@@ -1,0 +1,41 @@
+main stuff (python 2):
+pygame
+psyco (optional)
+
+vision (python 2):
+opencv
+
+planner (C++):
+uses boost_thread, boost_regex, boost_date_time
+uses a MODIFIED version of Box2D 2.1 (see libraries/Box2D/Modifications.txt)
+example compilation:
+g++ simulator.cpp -o simulator -O3 -mmmx -msse -msse2 -lBox2D -lboost_thread-mt -lboost_regex-mt -lboost_date_time-mt -lpthread -static
+
+simulator (C++):
+uses boost_thread, boost_regex, boost_date_time
+uses CGAL 3.7
+example compilation:
+g++ planner.cpp -o planner -O2 -mmmx -msse -msse2 -lboost_thread-mt -lboost_regex-mt -lboost_date_time-mt -lCGAL -lpthread -static
+
+robot communication (Java):
+uses a development version of LeJOS (rev 4237; https://lejos.svn.sourceforge.net/svnroot/lejos)
+compilation: nxjpcc RobotCommunication.java
+run: python ../../proxy.py nxjpc RobotCommunication
+
+movement (Java):
+uses the same version of LeJOS as above
+compilation: nxjc Start.java
+first upload and run: nxj -r Start
+
+example run:
+start central server on computer HOST
+python start_real.py
+start vision (make sure the pitch is clear)
+python ../vision_proxy.py --host HOST python startgui.py
+start movement on the brick:
+nxj -r Start
+connect to the brick
+python ../../proxy.py --host HOST nxjpc RobotCommunication
+start planner
+python proxy.py --host HOST planner/planner
+specifying the host is necessary on for the modules that are not run on the same computer as the central server.

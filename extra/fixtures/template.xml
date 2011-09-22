@@ -1,0 +1,26 @@
+<!-- 
+
+  Few note:
+    * The file should be named after the picture you are about to tag (without
+      the file extension). 
+    * You do **not** need to calculate the radius of the ball. However, if you
+      don't please write '-1'.
+    * 'yrobot' stands for yellow robot.
+    * 'brobot' stands for blue robot.
+    * If an object is not on the field please, mark it's location (-1,-1).
+    * Robot location should be in radians.
+    
+  Example:
+  <frame name="shot0001.jpg">
+      <ball x="20" y="20" radius="-1" />
+      <yrobot x="150" y="150" rotation="3.141592653589793" />
+      <brobot x="480" y="150" rotation="1.5707963267948966" />
+  </frame>
+  
+-->
+
+<frame name="">
+    <ball x="" y="" radius="" />
+    <yrobot x="" y="" rotation="" />
+    <brobot x="" y="" rotation="" />
+</frame>

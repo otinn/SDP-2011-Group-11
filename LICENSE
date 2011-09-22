@@ -1,0 +1,27 @@
+SDP 2011 Group 11's SDP solution
+----------------
+
+Our code is published under the terms of the General Public License, version 3 or later.
+The license text is shipped with this program as /gpl.txt.
+
+
+The file  
+
+/src/sdp/brick/LocationTracker.java
+
+is released by Dafydd Walters as follows:
+"Permission to copy all or part of this article, and to use or modify the code
+samples is freely granted, with the condition that copyright messages must be retained."
+http://www.seattlerobotics.org/encoder/200010/dead_reckoning_article.html
+
+
+The file  
+
+/src/sdp/vision/pyv4l2.py
+
+is released under the GPL v3 by Jackson Yee
+Project site: http://code.google.com/p/python-video4linux2/
+
+
+The included Box2D library is a modified version as described in /libraries/Box2D/Modifications_sdp2011.txt
+Its license can be found in /libraries/Box2D/License.txt
