@@ -19,12 +19,16 @@
 from __future__ import with_statement
 import __init__ # uses psyco if available @UnusedImport
 from datetime import datetime
+import os.path
 import sys
 
 START_TIME = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
 FILENAME = '../../logs/' + START_TIME.replace(':', '_') + '.log'
 print '/general/identify logger primary ' + START_TIME + ' python logger'
 sys.stdout.flush()
+
+if not os.path.exists('../../logs'):
+    os.makedirs('../../logs')
 
 with open(FILENAME, 'w') as file:
     while True:
