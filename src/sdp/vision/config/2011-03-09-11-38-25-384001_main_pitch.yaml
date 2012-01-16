@@ -1,0 +1,32 @@
+colours:
+  black:
+    inv_hsv: false
+    max_hsv: [122.0, 255.0, 126.0]
+    min_hsv: [0.0, 0.0, 66.0]
+  blue:
+    inv_hsv: false
+    max_hsv: [110.0, 255.0, 255.0]
+    min_hsv: [89.0, 69.0, 80.0]
+  green:
+    inv_hsv: false
+    max_hsv: [112.0, 255.0, 255.0]
+    min_hsv: [17.0, 53.0, 183.0]
+  red:
+    inv_hsv: false
+    max_hsv: [12.0, 255.0, 255.0]
+    min_hsv: [0.0, 110.0, 40.0]
+  yellow:
+    inv_hsv: true
+    max_hsv: [179.0, 255.0, 231.0]
+    min_hsv: [0.0, 0.0, 0.0]
+physical_thresholds:
+  ball_area: !!python/tuple [40.0, 203.0]
+  ball_radius: !!python/tuple [0.0, 15.0]
+  black_dot_area: !!python/tuple [20.0, 76.0]
+  black_dot_dist: !!python/tuple [16.0, 28.0]
+  blob_area: !!python/tuple [220.0, 4050.0]
+  cc_area: 15.0
+  max_foreground_obj: 3
+  plate_area: !!python/tuple [400.0, 2800.0]
+  pnp_dist: 0.93999999999999995
+  robot_area: !!python/tuple [220.0, 810.0]

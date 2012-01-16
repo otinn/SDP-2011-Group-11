@@ -23,12 +23,21 @@ class ThresholdTest:
   A simple tool used in order to manually check/visualise threshold values.
   """
   def __init__(self, im): 
-    self.minR = 80
-    self.minG = 94
-    self.minB = 53
-    self.maxR = 104
-    self.maxG = 135
-    self.maxB = 110
+    # 180,0,38), cv.Scalar(255,214,255 
+    # 68,68,68), cv.Scalar(124,124,124
+    # self._blue_colour_min_bgr      = cv.Scalar(180,0,38)
+    # self._blue_colour_max_bgr      = cv.Scalar(255,214,255)
+    # 100 116 0 255 141 118
+    # 100 101 100 193 147 128
+    # 10,0,165), cv.Scalar(255,110,255
+    
+    # 0 0 97 178 176 178
+    self.minR = 0
+    self.minG = 0
+    self.minB = 97
+    self.maxR = 178
+    self.maxG = 178
+    self.maxB = 178
     self.storage = cv.CreateMemStorage()
     cv.NamedWindow("Source", 0)
     cv.ShowImage("Source", im)
@@ -70,16 +79,27 @@ class ThresholdTest:
     self.maxB = val
     self.on_thresh()
   
-  def on_thresh(self):
+  def on_thresh(self, verbose=False):
     cv.InRangeS(self.image0, cv.Scalar(self.minR,self.minG,self.minB), cv.Scalar(self.maxR,self.maxG,self.maxB), self.imgThreshed)
     cv.ShowImage("Threshold", self.imgThreshed)
-    print self.minR, self.minG, self.minB, self.maxR, self.maxG, self.maxB
+    
+    if verbose:
+      print self.minR, self.minG, self.minB, self.maxR, self.maxG, self.maxB
     
   def run(self):
     self.on_thresh()
     cv.WaitKey(0)
     
+    imbw_clean = cv.CreateImage(cv.GetSize(self.imgThreshed), 8, 1)
+    tmp = cv.CreateImage(cv.GetSize(self.imgThreshed), 8, 1)
+    element = cv.CreateStructuringElementEx(3,3,1,1,cv.CV_SHAPE_ELLIPSE)
+    cv.MorphologyEx(self.imgThreshed, imbw_clean, tmp, element , cv.CV_MOP_CLOSE, 2)
+    cv.MorphologyEx(imbw_clean, imbw_clean, tmp, element , cv.CV_MOP_OPEN, 1)
+    cv.ShowImage('test', self.imgThreshed)
+    cv.WaitKey(0)
+    
+    
 if __name__ == "__main__":
-    im = cv.LoadImage("../../../../fixtures/24.01.11/shot0002.png")
-
+    im = cv.LoadImage("../../../../fixtures/12.02.11/shot0012.jpg")
+    
     ThresholdTest(im).run()
